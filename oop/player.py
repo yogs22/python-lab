@@ -3,11 +3,18 @@
 """
 
 class Player(object):
-	name = 'Maradona'
+	name = ''
+	speed = ''
 
-	def getPlayer(self, arg = name):
-		self.name = arg
+	def __init__(self, name, speed):
+		self.name = name
+		self.speed = speed
+
+	def getName(self):
 		return self.name
 
-player = Player()
-print(player.getPlayer('Wow'))
+	def getSpeed(self):
+		return self.speed 
+
+player = Player('Maradona', '200')
+print('Nama pemainku adalah ' + player.getName() + ' Kecepatanku ' + str(player.getSpeed()))
