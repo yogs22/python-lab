@@ -3,9 +3,6 @@
 """
 
 class Player(object):
-	name = ''
-	speed = ''
-
 	def __init__(self, name, speed):
 		self.name = name
 		self.speed = speed
@@ -16,5 +13,10 @@ class Player(object):
 	def getSpeed(self):
 		return self.speed 
 
-player = Player('Maradona', '200')
-print('Nama pemainku adalah ' + player.getName() + ' Kecepatanku ' + str(player.getSpeed()))
+class ArgentinaPlayer(Player):
+	def setAge(self, age):
+		self.age = age 
+		return self.age
+		
+player = ArgentinaPlayer('Maradona', '200')
+print('Nama : ' + player.getName() + ' \nKecepatan ' + player.getSpeed() + ' \nUsia : ' + player.setAge('12'))
