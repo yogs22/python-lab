@@ -13,10 +13,23 @@ class Player(object):
 	def getSpeed(self):
 		return self.speed 
 
+	def getSkill(self):
+		return 'normal'
+
 class ArgentinaPlayer(Player):
-	def setAge(self, age):
-		self.age = age 
-		return self.age
+	def getSkill(self):
+		return 'cepat'
+
+class BrazilPlayer(Player):
+	def getSkill(self):
+		return 'samba'
+
+class MalaysiaPlayer(Player):
+	pass
+		
 		
 player = ArgentinaPlayer('Maradona', '200')
-print('Nama : ' + player.getName() + ' \nKecepatan ' + player.getSpeed() + ' \nUsia : ' + player.setAge('12'))
+print('Nama : ' + player.getName() + ', Skill : ' + player.getSkill())
+
+player2 = MalaysiaPlayer('Sultan', '200')
+print('Nama : ' + str(player2.getName()) + ', Skill : ' + str(player2.getSkill()))
