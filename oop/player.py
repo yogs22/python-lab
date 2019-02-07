@@ -22,7 +22,7 @@ class ArgentinaPlayer(Player):
 
 class BrazilPlayer(Player):
 	def getSkill(self):
-		return 'samba'
+		return 'sambas'
 
 class MalaysiaPlayer(Player):
 	pass
