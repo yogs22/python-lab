@@ -3,33 +3,22 @@
 """
 
 class Player(object):
-	def __init__(self, name, speed):
+	def __init__(self, name):
 		self.name = name
-		self.speed = speed
 
 	def getName(self):
 		return self.name
-
-	def getSpeed(self):
-		return self.speed 
 
 	def getSkill(self):
 		return 'normal'
 
 class ArgentinaPlayer(Player):
+	def __init__(self, name):
+		super().__init__(name)
+		print('Hellow argentina')
+
 	def getSkill(self):
 		return 'cepat'
 
-class BrazilPlayer(Player):
-	def getSkill(self):
-		return 'sambas'
-
-class MalaysiaPlayer(Player):
-	pass
-		
-		
-player = ArgentinaPlayer('Maradona', '200')
+player = ArgentinaPlayer('Maradona')
 print('Nama : ' + player.getName() + ', Skill : ' + player.getSkill())
-
-player2 = MalaysiaPlayer('Sultan', '200')
-print('Nama : ' + str(player2.getName()) + ', Skill : ' + str(player2.getSkill()))
