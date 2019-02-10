@@ -3,22 +3,20 @@
 """
 
 class Player(object):
+	job = 'footbal player'
+
 	def __init__(self, name):
 		self.name = name
 
 	def getName(self):
 		return self.name
 
-	def getSkill(self):
-		return 'normal'
+	@staticmethod
+	def retiredIn(age):
+		return str(40 - age)
 
-class ArgentinaPlayer(Player):
-	def __init__(self, name):
-		super().__init__(name)
-		print('Hellow argentina!')
+	@classmethod
+	def getInfo(cls, age):
+		return cls.job + ' akan penisun pada ' + cls.retiredIn(20) + ' tahun'
 
-	def getSkill(self):
-		return 'cepat'
-
-player = ArgentinaPlayer('Maradona')
-print('Nama : ' + player.getName() + ', Skill : ' + player.getSkill())
+print(Player.getInfo(30))
