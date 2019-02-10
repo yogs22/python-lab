@@ -5,18 +5,20 @@
 class Player(object):
 	job = 'Pemain sepak bola'
 
-	def __init__(self, name):
+	def __init__(self, name, age):
 		self.name = name
+		self.age = age
 
-	def getName(self):
-		return self.name
+	@property
+	def infoPlayer(self):
+		return self.name + ' berumur ' + self.age
 
-	@staticmethod
-	def retiredIn(age):
-		return str(40 - age)
+	@infoPlayer.setter
+	def infoPlayer(self, data):
+		name, age = data.split(' ')
+		self.name = name
+		self.age  = age
 
-	@classmethod
-	def getInfo(cls, age):
-		return cls.job + ' akan penisun pada ' + cls.retiredIn(20) + ' tahun'
-
-print(Player.getInfo(30))
+player = Player('Maradona', '30')
+player.infoPlayer = 'Paul 100'
+print(player.infoPlayer)
