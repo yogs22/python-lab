@@ -15,7 +15,7 @@ class Player(object):
 class ArgentinaPlayer(Player):
 	def __init__(self, name):
 		super().__init__(name)
-		print('Hellow argentina')
+		print('Hellow argentina!')
 
 	def getSkill(self):
 		return 'cepat'
