@@ -14,19 +14,11 @@ class User(Model):
 sqlite_db.connect()
 sqlite_db.create_tables([User], safe = True)
 
-users = User.select().order_by(User.point.desc())
+# users = User.select().where((User.name == 'yogi') | (User.name == 'novi'))
 
+# for user in users:
+# 	print(user.name + ' Memiliki ' + str(user.point) + ' Point \nbergabung pada', user.join_at)
+
+users = User.select().where(User.name.contains('i'))
 for user in users:
-	print(user.name + ' Memiliki ' + str(user.point) + ' Point \nbergabung pada', user.join_at)
-
-# def get_rand():
-# 	return random.randint(1,20)
-
-# data = [
-# 	{'name': 'hilman', 'point': get_rand()},
-# 	{'name': 'yogi', 'point': get_rand()},
-# 	{'name': 'novi', 'point': get_rand()},
-# 	{'name': 'aldy', 'point': get_rand()},
-# ]
-
-# User.insert_many(data).execute()
+	print(user.name)
