@@ -14,7 +14,7 @@ class User(Model):
 sqlite_db.connect()
 sqlite_db.create_tables([User], safe = True)
 
-user = User.select().where(User.name == 'yogi').get()
-user.name = 'yogi prasetyawan'
+user = User.select().where(User.name == 'yogi prasetyawan').get()
+user.name = 'yogi'
 
-user.save()
+User.update(point = 100).where(User.name == 'novi').execute()
