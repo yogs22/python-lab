@@ -14,11 +14,7 @@ class User(Model):
 sqlite_db.connect()
 sqlite_db.create_tables([User], safe = True)
 
-# users = User.select().where((User.name == 'yogi') | (User.name == 'novi'))
+user = User.select().where(User.name == 'yogi').get()
+user.name = 'yogi prasetyawan'
 
-# for user in users:
-# 	print(user.name + ' Memiliki ' + str(user.point) + ' Point \nbergabung pada', user.join_at)
-
-users = User.select().where(User.name.contains('i'))
-for user in users:
-	print(user.name)
+user.save()
