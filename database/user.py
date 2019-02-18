@@ -14,6 +14,5 @@ class User(Model):
 sqlite_db.connect()
 sqlite_db.create_tables([User], safe = True)
 
-#delete_instance
-user = User.get(User.id == 4)
-user.delete_instance()
+#delete
+User.delete().where(User.point > 1).execute()
