@@ -13,16 +13,3 @@ class User(Model):
 
 sqlite_db.connect()
 sqlite_db.create_tables([User], safe = True)
-
-#count
-print(User.select().count())
-
-# #limit
-# users = User.select().limit(5)
-# for user in users:
-# 	print(user.name)
-
-#pagination
-users = User.select().paginate(3,4)
-for user in users:
-	print(user.name)
