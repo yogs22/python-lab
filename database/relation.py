@@ -17,13 +17,10 @@ class Tweet(BaseModel):
 
 sqlite_db.create_tables([User, Tweet])
 
-data = (
-	('hilman', ('halo tweet', 'ini tweet pertama')),
-	('yogi', ('halo bro', 'selamat makan')),
-	('novi', ('halo kang', 'ini tweet pertama')),
-)
+# query = Tweet.select().join(User).where(User.username == 'yogi')
+# for tweet in query:
+# 	print(tweet.message)
 
-for username, tweets in data:
-	user = User.create(username = username)
-	for tweet in tweets:
-		Tweet.create(user = user, message = tweet)
+noviTweet = User.get(User.username == 'novi')
+for tweet in noviTweet.tweets:
+	print(noviTweet.username + ' - ' + tweet.message + '\n' + str(tweet.created_at))
