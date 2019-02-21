@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-	return HttpResponse('Ada di index !')
+	return HttpResponse('<h3>APP news</h3>')
