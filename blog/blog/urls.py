@@ -4,6 +4,6 @@ from django.urls import include, path
 
 urlpatterns = [
 	path('news/', include('news.urls')),
-	path('', views.hello_world),
+	path('', views.welcome),
     path('admin/', admin.site.urls),
 ]

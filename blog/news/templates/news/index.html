@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar DJango | News</title>
+</head>
+<body>
+	{% for new in news %}
+		<h3>{{ new.title }}</h3>
+		<p>{{ new.desc }}</p>
+		<hr>
+	{% endfor %}
+</body>
+</html>
