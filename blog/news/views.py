@@ -6,3 +6,7 @@ from .models import News
 def index(request):
 	news = News.objects.all()
 	return render(request, 'news/index.html', {'news': news})
+
+def single(request, id):
+	new = News.objects.get(pk = id)
+	return render(request, 'news/single.html', {'new': new})
