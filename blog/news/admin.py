@@ -1,4 +1,11 @@
 from django.contrib import admin
-from .models import News
+from .models import News, Comment
 
-admin.site.register(News)
+class CommentInline(admin.StackedInline):
+	model = Comment
+		
+class NewsAdmin(admin.ModelAdmin):
+	inlines = [CommentInline, ]
+
+admin.site.register(News, NewsAdmin)
+admin.site.register(Comment)
