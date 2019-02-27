@@ -1,12 +1,14 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title %}{% block %}</title>
+	<title>Blog | {% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-	<h2>Welcome to article</h2>
+	<h2>Welcome to Blog</h2>
 	{% block content %}{% endblock %}
 </body>
 </html>
