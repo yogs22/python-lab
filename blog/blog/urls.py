@@ -4,7 +4,7 @@ from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-	path('news/', include('news.urls')),
+	path('news/', include('news.urls', namespace = 'news')),
 	path('', views.welcome),
     path('admin/', admin.site.urls),
 ]

@@ -7,7 +7,8 @@
 {% block content %}
 	{% for new in news %}
 		<h3>
-			<a href="/news/{{ new.id }}">{% new.title %}</a>
+			<a href="/news/{{ new.id }}">{{ new.title }}</a>
+			<p>{{ new.desc }}</p>
 		</h3>
-	{% end for %}
-{% endblock %}
+	{% endfor %}
+{% endblock %} 

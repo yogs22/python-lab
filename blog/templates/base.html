@@ -8,7 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-	<h2>Private Learn Python</h2>
+	<nav>
+		<a href="/">Home</a>
+		<a href="{% url 'news:index' %}">News</a>
+	</nav>
 	{% block content %}{% endblock %}
 </body>
 </html>
