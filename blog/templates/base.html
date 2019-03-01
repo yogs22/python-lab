@@ -4,14 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blog | {% block title %}{% endblock %}</title>
+	<title>First Learn Python</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
+	<h1>{% block title %}{% endblock %}</h1>
 	<nav>
 		<a href="/">Home</a>
 		<a href="{% url 'news:index' %}">News</a>
 	</nav>
+	<hr>
 	{% block content %}{% endblock %}
 </body>
 </html>

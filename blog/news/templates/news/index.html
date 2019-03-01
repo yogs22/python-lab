@@ -8,7 +8,7 @@
 	{% for new in news %}
 		<h3>
 			<a href="/news/{{ new.id }}">{{ new.title }}</a>
-			<p>{{ new.desc }}</p>
 		</h3>
+		<p>{{ new.desc }}</p>
 	{% endfor %}
 {% endblock %} 
