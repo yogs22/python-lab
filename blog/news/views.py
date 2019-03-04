@@ -20,4 +20,4 @@ def comment(request, id):
 		newDesc = request.POST['desc']
 		new.comment_set.create(desc = newDesc)
 
-		return HttpResponseRedirect('/news/')
+		return HttpResponseRedirect('/news/' + str(id))
