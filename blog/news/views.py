@@ -19,6 +19,12 @@ def comment(request, id):
 	if request.method == 'POST':
 		newDesc = request.POST['desc']
 		
+		if newDesc == "":
+			return render(request, 'news/single.html', {
+				'new': new,
+				'errors': 'Form komentar tidak boleh kosong'
+			})
+
 		if len(newDesc) < 10:
 			return render(request, 'news/single.html', {
 				'new': new,
