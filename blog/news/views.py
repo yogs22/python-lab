@@ -18,6 +18,13 @@ def comment(request, id):
 
 	if request.method == 'POST':
 		newDesc = request.POST['desc']
+		
+		if len(newDesc) < 10:
+			return render(request, 'news/single.html', {
+				'new': new,
+				'errors': 'Komentar minimal 10 karakter',
+			})
+		
 		new.comment_set.create(desc = newDesc)
 
 		return HttpResponseRedirect('/news/' + str(id))

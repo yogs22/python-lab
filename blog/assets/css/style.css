@@ -2,3 +2,7 @@ html body {
 	font-family: 'Arial', sans-serif;
 	padding: 20px 50px;
 }
+
+.is-error {
+	color: crimson;
+}

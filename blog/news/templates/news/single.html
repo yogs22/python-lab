@@ -11,6 +11,9 @@
 	<hr>
 	<form action="{% url 'news:comment' new.id %}" method="POST">
 		{% csrf_token %}
+		{% if errors %}
+			<p class="is-error"><strong>{{ errors }}</strong></p>
+		{% endif %}
 		<textarea name="desc" rows="8" cols="80"></textarea> <br>
 		<button type="submit">Kirim Komentar</button>
 	</form>
