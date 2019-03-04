@@ -9,4 +9,12 @@
 	<p>{{ new.desc }}</p>
 	<p>{{ new.created_at }}</p>
 	<hr>
+	<form action="{% url 'news:comment' new.id %}" method="POST">
+		{% csrf_token %}
+		<textarea name="desc" rows="8" cols="80"></textarea> <br>
+		<button type="submit">Kirim Komentar</button>
+	</form>
+	{% for comment in new.comment_set.all %}
+		<p>{{ comment.desc }}</p>
+	{% endfor %}
 {% endblock %}

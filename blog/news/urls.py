@@ -7,4 +7,5 @@ app_name = 'news'
 urlpatterns = [
 	path('', views.index, name='index'),
 	path('<int:id>', views.single), 
+	path('comment/<int:id>', views.comment, name='comment'),
 ]
