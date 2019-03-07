@@ -5,8 +5,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
 	path('news/', include('news.urls', namespace = 'news')),
-	path('', views.welcome),
-	path('kontak/', views.contact),
+	path('', views.welcome, name = 'home'),
+	path('kontak/', views.contact, name = 'contact'),
     path('admin/', admin.site.urls),
 ]
 
