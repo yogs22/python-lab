@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+# For email
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '695e6ca5a54e6f'
+EMAIL_HOST_PASSWORD = 'e60c81d6d3c623'
+EMAIL_PORT = '2525'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
