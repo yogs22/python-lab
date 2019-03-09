@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404,render
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import News
+from . import forms
+from django.contrib import messages
 
 def index(request):
 	news = News.objects.all()
@@ -8,7 +11,8 @@ def index(request):
 
 def single(request, id):
 	new = get_object_or_404(News, pk = id)
-	return render(request, 'news/single.html', {'new': new})
+	form = forms.CommentForm()
+	return render(request, 'news/single.html', {'new': new, 'form': form})
 
 def handler404():
 	return render(request, '404.html', status = 404)
@@ -17,20 +21,11 @@ def comment(request, id):
 	new = get_object_or_404(News, pk = id)
 
 	if request.method == 'POST':
-		newDesc = request.POST['desc']
 		
-		if newDesc == "":
-			return render(request, 'news/single.html', {
-				'new': new,
-				'errors': 'Form komentar tidak boleh kosong'
-			})
+		form = forms.CommentForm(request.POST)
+		if form.is_valid():
+			newDesc = request.POST['desc']
+			new.comment_set.create(desc = newDesc)
 
-		if len(newDesc) < 10:
-			return render(request, 'news/single.html', {
-				'new': new,
-				'errors': 'Komentar minimal 10 karakter',
-			})
-		
-		new.comment_set.create(desc = newDesc)
-
-		return HttpResponseRedirect('/news/' + str(id))
+			messages.success(request, 'Berhasil submit komentar !')
+			return HttpResponseRedirect(reverse('news:index'))
