@@ -29,3 +29,5 @@ def comment(request, id):
 
 			messages.success(request, 'Berhasil submit komentar !')
 			return HttpResponseRedirect(reverse('news:index'))
+
+	return render(request, 'news/single.html', {'new':new, 'form':form})
