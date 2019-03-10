@@ -15,6 +15,7 @@
 		<button type="submit">Kirim Komentar</button>
 	</form>
 	{% for comment in new.comment_set.all %}
-		<p>{{ comment.desc }}</p>
+		<p>{{ comment.desc }} - 
+		<a href="{% url 'news:comment-edit' comment.id %}">Edit</a></p>
 	{% endfor %}
 {% endblock %}
